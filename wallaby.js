@@ -1,6 +1,7 @@
-module.exports =  (wallaby) => {
+export default function(wallaby) {
   return {
     files: [
+      'package.json',
       'src/**/*.js',
       '!src/**/*.spec.js'
     ],
@@ -9,7 +10,10 @@ module.exports =  (wallaby) => {
     ],
     env: {
       type: 'node',
-      runner: 'node'
+      runner: 'node',
+      params: {
+        runner: '--experimental-vm-modules'
+      }
     },
     testFramework: 'ava',
     debug: true
